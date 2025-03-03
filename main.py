@@ -1,7 +1,5 @@
-from symtable import Class
-
 from sqlalchemy import create_engine, Column, Integer, String, CheckConstraint, REAL
-from sqlalchemy.orm import declarative_base, sessionmaker, Session
+from sqlalchemy.orm import declarative_base, sessionmaker
 from sqlalchemy.ext.hybrid import hybrid_property
 
 database = "data.db"
@@ -10,11 +8,13 @@ Base = declarative_base()
 Session = sessionmaker(bind=engine)
 s = Session()
 
+
 class Tastes(Base):
     __tablename__ = "tastes"
     id = Column(Integer, primary_key=True, nullable=False)
     name = Column(String(50))
     weight = Column(REAL)
+
 
 class IceCream(Base):
     __tablename__ = 'IceCream'
